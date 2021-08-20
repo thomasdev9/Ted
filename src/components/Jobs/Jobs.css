@@ -1,0 +1,192 @@
+.container-job{
+    background-color: #22252a;
+}
+
+.container-job .row .col-6{
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-left: 150px;
+    border-right: 1px solid #4d5466;
+}
+
+.container-job h6{
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+}
+
+.container-job p{
+    color: #b3b3b3;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.container-job .job-body{
+    height: 170px;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
+    width: 450px;
+    border-radius: 5px;
+    margin: 25px 0px 25px 0px;
+    box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
+    transition: 0.3s all ease;
+    overflow: hidden;
+}
+
+.container-job .job-body:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.6);
+}
+
+.container-job .job-body .col-2{
+    background-image: none;
+}
+
+.container-job .job-body .col-10{
+    background-image: none;
+}
+
+.container-job .job-body img{
+    height: 55px;
+    width: 55px;
+    background-color: transparent!important;
+    border: none;
+    margin: 20px 0px 0px 0px;
+    object-fit: cover;
+}
+
+.container-job .job-body h6{
+    padding: 20px 0px 0px 10px;
+    font-size: 18px;
+}
+
+.container-job .job-body .job-brand{
+    color: #fff!important;
+    padding: 0px 0px 10px 10px;
+    margin: 0px;
+    font-size: 14px;
+}
+
+.container-job .job-body .job-location{
+    padding: 0px 0px 0px 10px;
+}
+
+.container-job .job-body .job-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.container-job .job-body .job-footer span{
+    color: rgb(179, 179, 179);
+    font-weight: 600;
+}
+
+.container-job .job-body .job-footer button{
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    border: none;
+    margin-left: 15px;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 14px;
+    width: 100px;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.container-job .job-body .job-footer button:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+}
+
+.job-display{
+    margin-top: 100px!important;
+    padding-left: 10px!important;
+}
+
+.job-display .container .row .col-2 img{
+    height: 55px;
+    width: 55px;
+    background-color: transparent!important;
+    border: none;
+    margin: 5px 0px 0px 0px;
+    object-fit: cover;
+}
+
+.job-display .container .row .col-10{
+    padding: 0px!important;
+    margin: 0px!important;
+}
+
+.job-display h3{
+    font-family: 'Poppins',sans-serif;
+    font-size: 28px;
+    color: #fff;
+    padding: 0px 0px 5px 0px;
+    margin: 0px;
+}
+
+.job-display h4{
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+    color: #fff;
+    padding: 0px 0px 5px 0px;
+    margin: 0px;
+}
+
+.job-display .desc{
+    font-family: 'Poppins',sans-serif;
+    text-align: justify;
+    width: 80%;
+    padding-top: 20px;
+}
+
+.job-display .location{
+    color: rgb(179, 179, 179);
+    font-weight: 500;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.job-display span{
+    padding: 0px;
+    margin: 0px;
+    color: rgb(179, 179, 179);
+    font-weight: 600;
+}
+
+.job-display button{
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    border: none;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 14px;
+    width: 120px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.job-display button:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+}

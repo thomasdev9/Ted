@@ -1,0 +1,91 @@
+.container-cover-page{
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+    background-color: #17191c;
+}
+
+.card-job:not(:first-child) {
+    margin-left: -20px;
+}
+
+.card-job{
+    height: 300px;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;
+}
+
+.card-job:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+}
+
+.card-job:hover ~ .card-job {
+    position: relative;
+    left: 20px;
+    transition: 0.4s ease-out;
+}
+
+.card-job p{
+    color: #fff;
+    font-family: 'Lato',sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+}
+
+.card-job span{
+    color: #8c8c8c;
+}
+
+.card-job h6{
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Lato',sans-serif;
+    font-size: 18px;
+    padding-left: 15px;
+
+}
+
+.card-job .card-job-info{
+    padding-left: 15px;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.card-job img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.card-job-publish h6{
+    padding: 0px 0px 0px 10px;
+    margin-bottom: 0px 0px 12px 0px;
+    font-size: 16px;
+}
+.card-job-publish p{
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+    color: #8c8c8c;
+    font-weight: 600;
+}
+
+.job-brand{
+    color: #a6a6a6 !important;
+    font-size: 16px !important;
+}

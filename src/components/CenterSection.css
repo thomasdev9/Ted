@@ -1,0 +1,30 @@
+.center-section{
+    margin-top: 50px;
+    margin-bottom: 150px;
+    padding-bottom: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/office.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.center-section h2{
+    font-family: 'Poppins', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 42px;
+    font-weight: 500;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.center-section p{
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    color: rgb(235, 235, 235);
+    font-size: 16px;
+    padding-top: 20px;
+    padding-left: 250px;
+    padding-right: 250px;
+    padding-bottom: 100px;
+}

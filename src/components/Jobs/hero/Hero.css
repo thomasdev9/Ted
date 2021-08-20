@@ -1,0 +1,98 @@
+.job-hero-container{
+    height: 70vh;
+    background-color: #22252a;
+    padding-top: 120px!important;
+}
+
+.job-hero-container .row .col-6 h1{
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    padding-left: 150px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.job-hero-container .row .col-6 span{
+    padding-left: 150px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    color: #9a11d4;
+}
+
+.job-form{
+    padding-left: 100px;
+}
+
+.job-hero-container .row .col-6 h3{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10px;
+}
+
+.job-hero-container .row .col-6 form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.job-hero-container .row .col-6 form input{
+    background-color: #343944;
+    border: 2px solid #343944;
+    border-radius: 20px;
+    outline: none;
+    width: 300px;
+    height: 38px;
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    margin: 10px 0px;
+    transition: 0.3s all ease-out;
+}
+
+.job-hero-container .row .col-6 form input:focus{
+    border: 2px solid #720e9e;
+}
+
+.job-image{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #54575f;
+    padding-top: 15px;
+}
+
+.job-image label{
+    color:  #a6a6a6;
+}
+
+.job-image input{
+    background-color: transparent!important;
+    padding: 0px!important;
+    margin: 0px!important;
+    border: none!important;
+    border-radius: 0px!important;
+    color: #a6a6a6!important;
+}
+
+.job-hero-container .row .col-6 form button{
+    width: 100px;
+    height: 38px;
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 15px;
+    overflow: hidden;
+    transition: 0.3s all ease-out;
+}
+
+.job-hero-container .row .col-6 form button:hover{
+    cursor: pointer;
+    transform: scale(1.04);
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+}

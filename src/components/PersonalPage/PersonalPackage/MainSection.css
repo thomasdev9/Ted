@@ -1,0 +1,263 @@
+.main-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    background-color: #22252a;
+}
+
+.post-container{
+    margin-left: 50px;
+    width: 60%;
+    background-color: #2e3138;
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    margin-bottom: 50px;
+}
+
+.post-container textarea{
+    background-color: #2e3138;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    color: #cccccc;
+}
+
+.post-container textarea:focus{
+    outline: none;
+}
+
+.post-container textarea::placeholder{
+    opacity: 1;
+    color: #cccccc;
+}
+
+.post-container .post-list{
+    height: 50px;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.post-container .post-list .list-container{
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+
+
+.post-list ul{
+    padding: 5px 15px;
+}
+
+
+.post-list ul li{
+    display: inline-block;
+    list-style: none;
+    padding: 5px;
+}
+
+.post-list ul li i{
+    color: #cccccc;
+    vertical-align: middle;
+    transition: all 0.2s ease;
+}
+
+.post-list ul li i:hover{
+    cursor: pointer;
+    color: #720e9e;
+
+}
+
+.post-list button{
+    margin-right: 15px;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 80px;
+    height: 65%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    color: #fff;
+    font-weight: 600;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.post-list button:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.posted-container{
+    margin-left: 50px;
+    width: 60%;
+    background-color: #2e3138;
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    margin-bottom: 50px;
+    padding: 0px;
+}
+
+.posted-container .poster-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 20px;
+}
+
+.posted-container .poster-info img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.posted-container .poster-info .poster-publish{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 10px;
+}
+
+.posted-container .poster-info .poster-publish h6{
+    padding-top: 20px;
+    margin: 0px;
+    padding-bottom: 2px;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    color: #cccccc;
+}
+
+.posted-container .poster-info .poster-publish p{
+    margin-top: 0px;
+    padding-top: 0px;
+    color: #cccccc;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Roboto',sans-serif;
+}
+
+.posted-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.posted-content img{
+    height: 100%;
+    width: 90%;
+}
+
+.posted-content .posted-content-text p{
+    color: #cccccc;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.posted-content p{
+    text-align: justify;
+    font-size: 16px;
+}
+
+.posted-footer{
+    padding-top: 10px;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
+}
+
+.posted-footer .posted-likes ul{
+    margin-bottom: 5px!important;
+}
+
+.posted-footer .posted-likes ul li{
+    display: inline-block;
+    padding: 5px;
+    color: #cccccc;
+    font-weight: 600;
+}
+
+.posted-footer .posted-likes ul li i{
+    vertical-align: middle;
+    font-size: 28px;
+}
+
+.posted-footer .posted-likes p{
+    color: #cccccc;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    text-align: left;
+    padding-left: 37px;
+}
+
+.comment-section{
+    border-top: 1px solid #737373;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+}
+
+.comment-section textarea{
+    width: 90%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding-left: 15px;
+    resize: none;
+    height: 40%;
+    font-size: 14px;
+    font-family: 'Roboto',sans-serif;
+    color: #595959;
+}
+
+.comment-section textarea::placeholder{
+    color: #cccccc;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.comment-section i{
+    padding-left: 10px;
+    color: #cccccc;
+}
+
+.comment-section i:hover{
+    cursor: pointer;
+}
+
+.comment-button{
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    color: #fff;
+    opacity: 1;
+    margin: 10px;
+    border-radius: 15px;
+    text-align: center;
+    width: 70px;
+    height: 28px;
+    transition: all 0.3s ease;
+}
+
+.comment-button:hover{
+    opacity: 0.7;
+}

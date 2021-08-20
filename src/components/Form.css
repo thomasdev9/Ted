@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.form-container-login{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 500px;
+}
+
+.form-login input::placeholder{
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    color: #54575f;
+}
+
+.form-login h1{
+    padding-top: 70px;
+    padding-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: #60636c;
+}
+
+.form-login input{
+    padding: 4px;
+    width: 250px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #bbbdc3;
+    transition: border-bottom 0.3s linear;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+
+.form-login input:focus{
+    outline: none;
+    border-bottom: 2px solid #0099ff;
+}
+
+.form-container-login .button-login{
+    margin-top: 20px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    width: 120px;
+    height: 45px;
+    border: none;
+    background-image: linear-gradient(to right top, #0099ff, #0091f2, #0089e5, #0082d9, #007acc);
+    color: rgb(250,250,250);
+    font-family: 'Roboto',sans-serif;
+    font-size: 16px;
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.2);
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-login .button-login:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.form-login .button-login span{
+    padding-left: 4px;
+    font-weight: 100;
+}
+
+.form-login p{
+    margin-top: 30px;
+    font-family: 'Roboto',sans-serif;
+    color: #787c87;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.form-login p span{
+    color:  #0099ff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.form-login p span{
+    cursor: pointer;
+}
+
+.input-container-login{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container-login label{
+    position: absolute;
+    bottom: 50px;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+    color: #93969f;
+    font-size: 12px;
+}
+
+.error{
+    text-align: left;
+    font-size: 14px;
+    color: red;
+    font-weight: 500;
+}
+
