@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './SignUp.css'
 import {ErrorMessage, useField,Formik,Form} from 'formik';
 import * as yup from 'yup';
 
 function SignUp() {
+
+    const [image,setImage] = useState()
 
     const validate = yup.object({
         firstName: yup.string().min(3,'Must be at least 3 characters').max(15,'Must be at most 15 characters').required('First Name is required'),
@@ -13,6 +15,29 @@ function SignUp() {
         phone: yup.string().min(8,'Must be at least 8 characters').max(15,'Must be at most 15 characters').required('Phone is required'),
         email: yup.string().email('Email is invalid').required('Email is required')
     })
+
+    const onSubmit = (values) => {
+        const userData = new FormData()
+        userData.append('firstname', values.firstName)
+        userData.append('lastname',values.lastName)
+        userData.append('password',values.password)
+        userData.append('email',values.email)
+        userData.append('phone',values.phone)
+        userData.append('image',image, image.name)
+
+        fetch('http://127.0.0.1:8000/api/users/',{
+            method: 'POST',
+            body: userData
+        }).then(
+            data => {
+                console.log(data)
+            }
+        ).catch(
+            error => {
+                console.log(error)
+            }
+        )
+    }
 
     return (
         <Formik initialValues={{
@@ -24,6 +49,7 @@ function SignUp() {
             email: ''
         }} 
         validationSchema={validate}
+        onSubmit={onSubmit}
         >
             {formik => (
                 <div>
@@ -114,9 +140,11 @@ function SignUp() {
                                     </div>
                                     <div className="image-sign-up">
                                         <label for="img">Select image: &nbsp;</label>
-                                        <input type="file" id="img" name="img" accept="image/*" />
+                                        <input type="file" id="img" name="img" accept="image/*" 
+                                            onChange={(e) => setImage(e.target.files[0])}
+                                        />
                                     </div>
-                                    <button className="button-sign">Sign Up</button>
+                                    <button className="button-sign" type="submit">Sign Up</button>
                                     <p>Do you have already an account?<span>Log in</span></p>
                                 </Form>
                             </div>
@@ -125,6 +153,7 @@ function SignUp() {
                 </div>
             )}
         </Formik>
+
     )
 }
 

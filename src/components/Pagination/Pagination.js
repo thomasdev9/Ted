@@ -12,7 +12,7 @@ function Pagination() {
     const [postsPerPage,setpostsPerPage] = useState(10);
 
     useEffect(() => {
-        const fecthPosts= async () => {
+        const fecthPosts = async () => {
             setLoading(true);
             const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
             setPosts(res.data);

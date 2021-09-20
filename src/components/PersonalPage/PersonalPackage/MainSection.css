@@ -69,6 +69,11 @@
     transition: all 0.2s ease;
 }
 
+.post-list ul li input{
+    display: none;
+    visibility: none;
+}
+
 .post-list ul li i:hover{
     cursor: pointer;
     color: #720e9e;
@@ -155,6 +160,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding-bottom: 15px;
 }
 
@@ -163,10 +169,15 @@
     width: 90%;
 }
 
+.posted-content .posted-content-text{
+    width: 100%;
+}
+
 .posted-content .posted-content-text p{
     color: #cccccc;
     padding-left: 30px;
     padding-right: 30px;
+    text-align: justify;
 }
 
 .posted-content p{
@@ -260,4 +271,52 @@
 
 .comment-button:hover{
     opacity: 0.7;
+}
+
+#display-image{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    background-color: #343944;
+    width: auto;
+    height: 35px;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    visibility: hidden;
+}
+
+.post-test{
+    color: #fff!important
+}
+
+.audio-player{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+}
+
+.audio-player .audio-title{
+    height: 40px;
+    background-color: #22252a;
+    color: #cccccc;
+    padding: 5px 15px;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.audio-player img{
+    height: 100%;
+    width: 100%;
+}
+
+.audio-player audio{
+    width: 100%;
 }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { GlobalStyle } from './GlobalStyles';
 import { Modal } from './Modal';
 import {ModalSignUp} from './ModalSignUp'
+import {Link} from 'react-router-dom'
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ function Navbar() {
                                 <a href="#" className="nav-link text-white">Αρχικη Σελιδα</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link text-white">Δικτυο</a>
+                                <a href="#"><Link to="/network" className="nav-link text-white">Δικτυο</Link></a>
                             </li>
                             <li className="nav-item">
                                 <a href="#" className="nav-link text-white">Αγγελιες</a>
@@ -46,7 +47,7 @@ function Navbar() {
                                 <a href="#" className="nav-link text-white">Συζητησεις</a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link text-white">Ειδοποιησεις</a>
+                                <a href="#"><Link to="/notifications" className="nav-link text-white">Ειδοποιησεις</Link></a>
                             </li>
                             <li className="nav-item">
                                 <a href="#" className="nav-link text-white">Προσωπικα Στοιχεια</a>

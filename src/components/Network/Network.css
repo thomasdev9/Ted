@@ -58,17 +58,17 @@
 }
 
 .card-container .row .col-4{
-    height: 300px;
-    width: 250px;
+    height: 320px;
+    width: 270px;
 }
 
 .card-container .card{
-    height: 300px;
+    height: 320px;
     background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
     display: flex;
     align-items: center;
     border-radius: 10px;
-    width: 250px;
+    width: 270px;
     box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.6);
@@ -118,7 +118,7 @@
     padding: 5px;
 }
 
-.card-container .card button{
+.card-container .card .network-profile-buttons .network-button-view{
     border-radius: 20px;
     padding: 5px;
     font-size: 14px;
@@ -126,11 +126,27 @@
     color: #fff;
     background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
     border: none;
-    width: 100px;
+    width: 110px;
     height: 35px;
     margin-top: 20px;
     transition: all 0.3s ease;
     opacity: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-container .card .network-profile-buttons .network-button-send{
+    width: 110px;
+    font-size: 14px;
+    height: 35px;
+    border-radius: 25px;
+    margin-left: 10px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    background-color: #343944;
+    transition: all 0.3s ease;
+    opacity: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .card-container .card button:hover{
@@ -139,4 +155,8 @@
     box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
     -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+}
+
+.network-col{
+    margin: 20px 15px!important;
 }

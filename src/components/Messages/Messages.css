@@ -1,0 +1,319 @@
+body{
+    background-color: #22252a;
+}
+
+.messages-container{
+    background-color: #22252a;
+    padding-left: 0px!important;
+    margin: 0px!important;
+    padding-top: 50px!important;
+}
+
+.message-box{
+    margin: 50px 200px 0px 200px!important;
+    background-color: #17191c;
+    box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 16px 7px rgba(0,0,0,0.6);
+}
+
+.messages-container .row .col-4{
+    padding: 0px!important;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f);
+}
+
+.messages-container .row .col-4 > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.messages-container .row .col-4 input{
+    width: 70%;
+    height: 35px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    background-color: #343944;
+    border: 1px solid #343944;
+    color: #fff;
+    opacity: 1;
+    outline: none;
+    transition: all 0.3s ease-out;
+}
+
+.messages-container .row .col-4 input:focus{
+    border: 1px solid #720e9e;
+}
+
+.messages-container .row .col-4 h2{
+    padding: 30px;
+    font-family: 'Poppins',sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+.messages-container .row .col-4 hr{
+    border-top: 2px solid #4d5466;
+    opacity: 1;
+    margin-bottom: 0px;
+}
+
+.messages-container .row .col-4 ul{
+    padding: 0px!important;
+    margin: 0px !important;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.messages-container .row .col-4 ul li{
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    border-bottom: 1px solid #4d5466;
+}
+
+.messages-container .row .col-4 img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+.messages-container .row .col-4 .name-wrapped{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.messages-container .row .col-4 .name-wrapped h5{
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+}
+
+.messages-container .row .col-4 .name-wrapped p{
+    color: rgb(179, 179, 179);
+    font-family: 'Poppins',sans-serif;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.message-group-received{
+    display: flex;
+    width: 100%;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.message-group-received > div:first-child{
+    margin-top: auto;
+    margin-right: 5px;
+}
+
+.message-group-received > div:last-child{
+    flex-grow: 1;
+}
+
+.message-group-received img{
+    object-fit: cover;
+}
+
+.message-group-received > div:first-child > img{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+}
+
+.message-received{
+    max-width: 75%;
+    margin: 2px 0;
+    display: flex;
+}
+
+.message-received:first-child > .message-received-text{
+    border-top-left-radius: 20px;
+}
+
+.message-received:last-child > .message-received-text{
+    border-bottom-left-radius: 20px;
+}
+
+.message-received-text{
+    padding: 10px;
+    min-height: 20px;
+    background-color: #373737;
+    border-radius: 4px 20px 20px 4px;
+}
+
+.message-group-sent{
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.message-sent{
+    max-width: 75%;
+    display: flex;
+    margin: 2px 0 2px auto;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+}
+
+.message-sent:first-child > .message-sent-text{
+    border-top-right-radius: 20px;
+}
+
+.message-sent:last-child > .message-sent-text{
+    border-bottom-right-radius: 20px;
+}
+
+.message-sent-text{
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    border-radius: 20px 4px 4px 20px;
+    min-height: 20px;
+    padding: 10px;
+    margin-left: auto;
+}
+
+.message-sent-status{
+    width: 15px;
+    display: flex;
+    margin-left: 5px;
+    font-size: 15px;
+    color: rgba(134, 142, 153, 0.5);
+}
+
+.message-sent-status > img{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-top: auto;
+}
+
+.chat-start{
+    display: flex;
+    flex-direction: row;
+    padding: 30px 0px 0px 10px;
+}
+
+.chat-start img{
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chat-start .chat-start-info{
+    padding-left: 20px;
+}
+
+.chat-start .chat-start-info p{
+    margin-bottom: 0px!important;
+}
+
+.chat-start .chat-start-info span{
+    color: rgb(179, 179, 179);
+    font-size: 14px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 400;
+    margin: 0px!important;
+    padding: 0px!important;
+}
+
+.chat-start p{
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-size: 18px;
+}
+
+.message-col{
+    height: 100vh;
+}
+
+.message-col hr{
+    border-bottom: 2px solid #4d5466;
+    margin-bottom: 50px;
+    opacity: 1;
+}
+
+.message-col input{
+    width: 90%;
+    height: 35px;
+    padding: 15px 35px; 
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #343944;
+    border: 1px solid #343944;
+    color: #fff;
+    opacity: 1;
+    outline: none;
+    transition: all 0.3s ease-out;
+}
+
+.message-col > div{
+    position: relative;
+}
+
+.comment-icon{
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    color: rgb(179, 179, 179);
+    font-size: 18px;
+    padding: 9px 10px;
+}
+
+.message-col button{
+    border-radius: 25px;
+    margin-left: 5px;
+    width: 55px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    height: 35px;
+    background-color: #343944;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s all ease-out;
+}
+
+.message-col button:hover{
+    background-color: #720e9e;
+}
+
+.message-col input:focus{
+    border: 1px solid #720e9e;
+}
+
+.wrapped-search{
+    position: relative;
+}
+
+.wrapped-search i{
+    position: absolute;
+    top: 18px;
+    left: 15%;
+    padding: 0px 10px;
+    color: rgb(179, 179, 179);
+}
+
+.messages-scroll{
+    overflow-y: scroll;
+}
+
+.messages-footer{
+    display: flex;
+    align-items: center;
+}
