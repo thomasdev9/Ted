@@ -1,6 +1,7 @@
 .card-container{
-    background-color: #22252a;
+    background-color: #22252a!important;
     padding-top: 50px!important;
+    min-height: 100vh;
 }
 
 .card-container h2{

@@ -89,3 +89,8 @@
     color: #a6a6a6 !important;
     font-size: 16px !important;
 }
+
+.empty-jobs-list{
+    color: #fff;
+    text-align: center;
+}

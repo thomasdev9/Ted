@@ -16,13 +16,14 @@ function FormComp() {
     const {value1, value2} = useContext(UserContext)
     const {isAuth, setIsAuth} = value1
     const {email, setEmail} = value2
+    const [message, setMessage] = useState('')
 
     const validate = yup.object({
         email: yup.string().email('Email is invalid').required('Email is required'),
         password: yup.string().min(5,'Password must be at least 5 characters').max(12,'Password must be at most 12 characters').required('Password is required')
     })
 
-    const onSubmit = (values) => {
+    const onSubmit = (values, {resetForm}) => {
         const userData = new FormData()
         userData.append('email',values.email)
         userData.append('password',values.password)
@@ -32,6 +33,7 @@ function FormComp() {
             password: values.password
         })
         .then(response => {
+            setMessage(response.data.Message)
             const user = response.data[0]
             setEmail(user.email)
             setIsAuth(true)
@@ -40,6 +42,8 @@ function FormComp() {
         .catch(error => {
             console.log(error)
         })
+
+        resetForm({values: ''})
 
     }
 
@@ -81,7 +85,7 @@ function FormComp() {
                                 <ErrorMessage name="password" component="div" className="error"/>
                             </div>
                             <button type="submit" className="button-login">Login<span className="material-icons-outlined">chevron_right</span></button>
-                            <p>Don't have an account yet? <span>Sign up</span></p>
+                            <p className="user-not-exists">{message}</p>
                         </Form>
                     </div>
                 </div>

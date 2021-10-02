@@ -6,6 +6,7 @@ import VideoPosted from './videos/video_1.mp4'
 import AudioPlayerImage from './images/record.jpg'
 import { UserContext } from '../../Contexts/UseContext'
 import axios from 'axios'
+import ModalPage, { ModalJob } from './modal/ModalPage'
 
 function MainSection() {
 
@@ -17,6 +18,13 @@ function MainSection() {
     const {isAuth, setIsAuth} = value1
     const {email, setEmail} = value2
     const [posts, setPosts] = useState([])
+    const [users, setUsers] = useState([])
+    const [likes, setLikes] = useState([])
+    const [comment, setComment] = useState('')
+    const [commentList, setCommentsList] = useState([])
+    const [response, setResponse] = useState('')
+    const [showModal,setShowModal] = useState(false)
+    const [commentResponse, setCommentResponse] = useState([])
     const splitArr = [];
     const imageUrl = 'http://localhost:8000'
     const mediaUrl = 'http://localhost:8000/posts/'
@@ -34,6 +42,41 @@ function MainSection() {
             data => setPosts(data)
         ).catch(
             error => console.log(error)
+        )
+
+        await axios.get('http://127.0.0.1:8000/api/get-all-users/')
+        .then(
+            data => {
+                setUsers(data.data)
+            }
+        ).catch(
+            error => {
+                console.log(error)
+            }
+        )
+
+        await axios.get('http://127.0.0.1:8000/api/get-likes/')
+        .then(
+            data => {
+                setLikes(data.data)
+            }
+        )
+        .catch(
+            error => {
+                console.log(error)
+            }
+        )
+
+        await axios.get('http://127.0.0.1:8000/api/get-comments/')
+        .then(
+            data => {
+                setCommentsList(data.data)
+            }
+        )
+        .catch(
+            error => {
+                console.log(error)
+            }
         )
     }
 
@@ -58,18 +101,22 @@ function MainSection() {
             }
         }).then(
             data => {
-                console.log(data)
+                const newPost = data.data
+                setPosts(oldPosts => [...oldPosts, newPost]);
             }
         ).catch(
             error => {
                 console.log(error)
             }
         )
+
     }
 
     const getImage = (e) => {
         var imageName = e.target.value
         setPostImage(e.target.files[0])
+        setPostAudio()
+        setPostVideo()
         var newImage = imageName.replace(/^.*\\/,"")
         document.getElementById("display-image").innerHTML = newImage
         document.getElementById('display-image').style.visibility = 'visible'
@@ -78,6 +125,8 @@ function MainSection() {
     const getVideo = (e) => {
         var videoName = e.target.value
         setPostVideo(e.target.files[0])
+        setPostImage()
+        setPostAudio()
         var newVideo = videoName.replace(/^.*\\/,"")
         document.getElementById("display-image").innerHTML = newVideo
         document.getElementById('display-image').style.visibility = 'visible'
@@ -86,6 +135,8 @@ function MainSection() {
     const getAudio = (e) => {
         var audioName = e.target.value
         setPostAudio(e.target.files[0])
+        setPostVideo()
+        setPostImage()
         var newAudio = audioName.replace(/^.*\\/,"")
         document.getElementById("display-image").innerHTML = newAudio
         document.getElementById('display-image').style.visibility = 'visible'
@@ -102,10 +153,119 @@ function MainSection() {
         return title.join(' ');
     }
 
-    console.log(posts)
+    const getName = (id) => {
+        var firstname, lastname,name
+        users.forEach(function(item){
+            if (item.id == id){
+                firstname = item.firstname
+                lastname = item.lastname
+            }
+        })
+        name = firstname + ' ' + lastname
+        return name
+    }
+
+    const getImageUser = (id) => {
+        var image = 'http://localhost:8000';
+        var temp_image;
+
+        users.forEach(function(item){
+            if(item.id == id){
+                temp_image = item.image
+            }
+        })
+
+        image = image + temp_image
+        return image
+    }
+
+    const formatDate = (date) => {
+        var date = String(date)
+        date = date.split('T')
+        date = date[0]
+        return date
+    }
+
+    const getLikes = (id) => {
+        var likesCounter = 0
+        likes.forEach(function(item){
+            if(item.post_id == id){
+                likesCounter++;
+            }
+        })
+
+        return likesCounter
+    }
+
+    const makeLike = (e,id) => {
+        const sendLike = async () => {
+            await axios.post('http://127.0.0.1:8000/api/send-like/',{
+                email: email,
+                post_id: id
+            })
+            .then(
+                data => {
+                    setResponse(data.data.Message)
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error)
+                }
+            )
+        }
+
+        sendLike()
+        const newLike = {
+            post_id: id
+        }
+        if(response == 'You have already liked this post.'){
+            return;
+        }
+        setLikes(oldLikes => [...oldLikes, newLike]);
+    }
+    
+    const postComment = (id) => {
+        
+        const sendComment = async () => {
+            await axios.post('http://127.0.0.1:8000/api/send-comment/',{
+                email: email,
+                post_id: id,
+                text: comment
+            })
+            .then(
+                data => {
+                    console.log(data.data)
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error)
+                }
+            )
+        }
+
+        sendComment()
+    }
+
+    const getCountComments = (id) => {
+        var count = 0
+        commentList.forEach(function(item){
+            if(item.post_id == id){
+                count++
+            }
+        })
+
+        return count
+    }
+
+    const openModal = () => {
+        setShowModal(prev => !prev)
+    }
 
     return (
         <div>
+            <ModalPage showModal={showModal} setShowModal={setShowModal} />
             <section className="main-container">
                 <div className="post-container">
                     <textarea placeholder="What's in your mind today?" 
@@ -141,21 +301,24 @@ function MainSection() {
                 </div>
                 
                 {
-                    posts.map(post => 
+                    (posts.length > 0)
+                    ?posts.map(post => 
                         <div className="posted-container">
                             <div className="poster-info">
-                                <img src={PhotoFriend_1}/>
+                                <img src={getImageUser(post.user_id)}/>
                                 <div className="poster-publish">
-                                    <h6>Jim Brown</h6>
-                                    <p>Published on 5 May, 2021</p>
+                                    <h6>{getName(post.user_id)}</h6>
+                                    <p>Published on {formatDate(post.created_at)}</p>
                                 </div>
                             </div>
                             <div className="posted-content">
                             <div className="posted-content-text">
                                 <p key={post.id}>{post.text}</p>
                             </div>
-                            <img src={imageUrl + post.image}/>
-                            {post.audio !== null &&
+                            {(post.image !== null && post.image != '/media/undefined') &&
+                                <img src={imageUrl + post.image}/>
+                            }
+                            {(post.audio !== null && post.audio != '/media/undefined') &&
                                 <div className="audio-player">
                                     <div className="audio-title">{setTitleAudio(post.audio)}</div>
                                     <img src={AudioPlayerImage}/>
@@ -164,7 +327,7 @@ function MainSection() {
                                     </audio>
                                 </div>
                             }
-                            {post.video !== null &&
+                            {(post.video !== null && post.video != '/media/undefined') &&
                                 <video width="90%" height="100%" controls>
                                     <source src={imageUrl + post.video}/>
                                 </video>
@@ -173,104 +336,22 @@ function MainSection() {
                             <div className="posted-footer">
                                 <div className="posted-likes">
                                     <ul>
-                                        <li>32 Likes</li>
+                                        <li>{getLikes(post.id)} Likes</li>
+                                        <li className="comments-button">{getCountComments(post.id)} Comments</li>
                                     </ul>
                                     <div className="comment-section">
-                                        <i className="material-icons-outlined">favorite_border</i>
+                                        <i className="material-icons-outlined" onClick={(e) => makeLike(e,post.id)}>favorite_border</i>
                                         <div className="mx-auto"></div>
-                                        <textarea placeholder="Add a comment..."></textarea>
-                                        <button className="comment-button">Post</button>
+                                        <textarea className="textarea-post" placeholder="Add a comment..." onChange={(e) => setComment(e.target.value)}></textarea>
+                                        <button className="comment-button" onClick={() => postComment(post.id)}>Post</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                )}
+                )
+                :<h2 className="empty-posts">No posts yet.</h2>
+                }
                     
-                
-
-                <div className="posted-container">
-                    <div className="poster-info">
-                        <img src={PhotoFriend_1}/>
-                        <div className="poster-publish">
-                            <h6>Jim Brown</h6>
-                            <p>Published on 5 May, 2021</p>
-                        </div>
-                    </div>
-                    <div className="posted-content">
-                        <img src={PhotoRoad}/>
-                    </div>
-                    <div className="posted-footer">
-                        <div className="posted-likes">
-                            <ul>
-                                <li>32 Likes</li>
-                            </ul>
-                            <div className="comment-section">
-                                <i className="material-icons-outlined">favorite_border</i>
-                                <div className="mx-auto"></div>
-                                <textarea placeholder="Add a comment..."></textarea>
-                                <button className="comment-button">Post</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="posted-container">
-                    <div className="poster-info">
-                        <img src={PhotoFriend_1}/>
-                        <div className="poster-publish">
-                            <h6>Jim Brown</h6>
-                            <p>Published on 5 May, 2021</p>
-                        </div>
-                    </div>
-                    <div className="posted-content">
-                        <video width="90%" height="100%" controls>
-                            <source src={VideoPosted}/>
-                        </video>
-                    </div>
-                    <div className="posted-footer">
-                        <div className="posted-likes">
-                            <ul>
-                                <li>32 Likes</li>
-                            </ul>
-                            <div className="comment-section">
-                                <i className="material-icons-outlined">favorite_border</i>
-                                <div className="mx-auto"></div>
-                                <textarea placeholder="Add a comment..."></textarea>
-                                <button className="comment-button">Post</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="posted-container">
-                    <div className="poster-info">
-                        <img src={PhotoFriend_1}/>
-                        <div className="poster-publish">
-                            <h6>Jim Brown</h6>
-                            <p>Published on 5 May, 2021</p>
-                        </div>
-                    </div>
-                    <div className="posted-content">
-                        <div className="posted-content-text">
-                            <p>
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                            </p>
-                        </div>
-                    </div>
-                    <div className="posted-footer">
-                        <div className="posted-likes">
-                            <ul>
-                                <li>32 Likes</li>
-                            </ul>
-                            <div className="comment-section">
-                                <i className="material-icons-outlined">favorite_border</i>
-                                <div className="mx-auto"></div>
-                                <textarea placeholder="Add a comment..."></textarea>
-                                <button className="comment-button">Post</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
             </section>
         </div>

@@ -1,5 +1,7 @@
 .container-job{
     background-color: #22252a;
+    padding-top: 150px!important;
+    padding-bottom: 200px!important;
 }
 
 .container-job .row .col-6{
@@ -167,7 +169,7 @@
     font-weight: 600;
 }
 
-.job-display button{
+.job-display .button-apply{
     background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
     color: #fff;
     font-family: 'Poppins',sans-serif;
@@ -183,10 +185,94 @@
     margin-top: 10px;
 }
 
+.job-display .button-participants{
+    background-color: #343944;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    border: none;
+    padding: 5px;
+    border-radius: 25px;
+    font-size: 14px;
+    width: 120px;
+    transition: all 0.3s ease;
+    opacity: 1;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 .job-display button:hover{
     cursor: pointer;
     transform: scale(1.04);
     box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
     -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
     -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.4);
+}
+
+.empty-jobs{
+    color: #b3b3b3;
+    font-family: 'Poppins',sans-serif;
+}
+
+.jobs-button-toggle{
+    width: 160px;
+    font-family: 'Poppins',sans-serif;
+    color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+.jobs-button-toggle input[type="checkbox"]{
+    position: relative;
+    width: 150px;
+    height: 30px;
+    background-color: #343944;
+    -webkit-appearance: none;
+    border-radius: 20px;
+    outline: none;
+    transition: all 0.4s linear;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.jobs-button-toggle input[type="checkbox"]::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 70px;
+    height: 30px;
+    background-color: #720e9e;
+    border-radius: 50px;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s linear;
+}
+
+.jobs-button-toggle input:checked[type="checkbox"]::before{
+    left: 75px;
+}
+
+.jobs-button-toggle label{
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+}
+
+.all-jobs{
+    left: 5px;
+}
+
+.my-jobs{
+    right: 20px;
+}
+
+.message-apply{
+    padding-top: 15px;
 }

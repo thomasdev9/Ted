@@ -7,6 +7,7 @@ import ImageFriend_3 from './images/friend_3.jpg'
 import ImageFriend_4 from './images/friend_4.jpg'
 import './SideBar.css'
 import { UserContext } from '../../Contexts/UseContext'
+import {Redirect, withRouter, Link} from 'react-router-dom'
 
 function SideBar() {
 
@@ -16,10 +17,10 @@ function SideBar() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [image, setImage] = useState()
+    const [friends, setFriends] = useState([])
     const imageUrl = 'http://localhost:8000'
 
-    useEffect(
-        () => {
+    useEffect(() => {
             axios.post('http://127.0.0.1:8000/api/user-data/',{
                 email: email
             }).then(response =>{
@@ -31,6 +32,20 @@ function SideBar() {
             .catch(
                 error => console.log(error)
             )
+
+            axios.post('http://127.0.0.1:8000/api/get-friends/',{
+                email: email
+            })
+            .then(
+                data => {
+                    setFriends(data.data)
+                }
+            )
+            .catch(
+                error => {
+                    console.log(error)
+                }
+            )
     }, [])
 
     return (
@@ -40,38 +55,26 @@ function SideBar() {
                     <label>PRO</label>
                     <img className="" src={imageUrl + image}/>
                     <h2>{firstName}</h2>
-                    <h6>Web Developer</h6>
+                    <h6>{email}</h6>
                     
-                    <button>View Profile</button>
+                    <button><Link to={{ pathname: '/user-page', state: { userEmail: email} }} className="sidebar-view-profile">View Profile</Link></button>
                 </div>
                 <div className="network-container">
                     <h2>Network</h2>
                     <hr />
                     <ul>
-                        <li>
-                            <img src={ImageFriend_1}/>
-                            <h6>Jim Brown</h6>
-                            <span class="material-icons-outlined friend-view-more">chevron_right</span>    
-                        </li>
-                        <li>
-                            <img src={ImageFriend_2}/>
-                            <h6>Tom Floyd</h6>
-                            <span class="material-icons-outlined friend-view-more">chevron_right</span>
-                        </li>
-                        <li>
-                            <img src={ImageFriend_3}/>
-                            <h6>Peter Vikos</h6>
-                            <span class="material-icons-outlined friend-view-more">chevron_right</span>
-                        </li>
-                        <li>
-                            <img src={ImageFriend_4}/>
-                            <h6>John Donny</h6>
-                            <span class="material-icons-outlined friend-view-more">chevron_right</span>
-                        </li>
+                        {
+                            (friends.length > 0)
+                            ?friends.map(friend => 
+                                <li>
+                                    <img src={imageUrl + friend.image}/>
+                                    <h6>{friend.firstname} {friend.lastname}</h6>
+                                    <span class="material-icons-outlined friend-view-more">chevron_right</span>    
+                                </li>
+                            )
+                            :<h4 className="empty-friends">No Friends yet</h4>
+                        }
                     </ul>
-                    <div className="friend-button-container">
-                        <button>View All</button>
-                    </div>
                 </div>
             </div>
         </div>

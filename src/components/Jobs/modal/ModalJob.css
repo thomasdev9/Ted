@@ -1,0 +1,42 @@
+.participants-container{
+    padding: 20px 40px;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    width: 100%;
+}
+
+.participants-container h2{
+    font-weight: 400;
+}
+
+.participants-container ul{
+    list-style: none;
+    margin-top: 30px;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.participants-container ul li{
+    padding: 5px 0px;
+}
+
+.participant-wrapped{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.participant-image{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    padding: 5px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.empty-participants{
+    color: #fff;
+}

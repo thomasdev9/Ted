@@ -5,7 +5,7 @@ function Footer() {
     return (
         <div>
             <footer>
-                <div className="container">
+                <div className="container-fluid footer-container">
                     <div className="row">
                         <div className="col-3">
                             <h3>Web Job</h3>

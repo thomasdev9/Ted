@@ -4,9 +4,13 @@ body{
 }
 
 footer{
-    background-color: #262626;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f)!important;
     padding: 0;
     margin: 0;
+}
+
+.footer-container{
+    background-color: transparent!important;
 }
 
 footer .container{
@@ -21,6 +25,7 @@ footer p{
 
 footer .col-3{
     text-align: center;
+    background-image: none;
 }
 
 footer h3{
@@ -30,6 +35,7 @@ footer h3{
     padding-top: 50px;
     padding-bottom: 10px;
     text-align: center;
+    font-size: 32px;
 }
 
 footer h5{
@@ -37,6 +43,7 @@ footer h5{
     color: #cccccc;
     font-weight: 500;
     padding-top: 50px;
+    font-size: 25px;
 }
 
 footer ul{
@@ -53,8 +60,13 @@ footer ul li{
 footer ul li a{
     color: #cccccc;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
+}
+
+footer ul li a:hover{
+    cursor: pointer;
+    color: #720e9e;
 }
 
 footer ul li{
@@ -65,7 +77,7 @@ footer ul li{
 
 footer ul li i:hover{
     cursor: pointer;
-    color: blue;
+    color: #720e9e;
 }
 
 .contact-info li{

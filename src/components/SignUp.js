@@ -2,10 +2,12 @@ import React, {useState} from 'react'
 import './SignUp.css'
 import {ErrorMessage, useField,Formik,Form} from 'formik';
 import * as yup from 'yup';
+import axios from 'axios'
 
 function SignUp() {
 
     const [image,setImage] = useState()
+    const [message, setMessage] = useState('')
 
     const validate = yup.object({
         firstName: yup.string().min(3,'Must be at least 3 characters').max(15,'Must be at most 15 characters').required('First Name is required'),
@@ -16,7 +18,7 @@ function SignUp() {
         email: yup.string().email('Email is invalid').required('Email is required')
     })
 
-    const onSubmit = (values) => {
+    const onSubmit = (values, {resetForm}) => {
         const userData = new FormData()
         userData.append('firstname', values.firstName)
         userData.append('lastname',values.lastName)
@@ -25,18 +27,19 @@ function SignUp() {
         userData.append('phone',values.phone)
         userData.append('image',image, image.name)
 
-        fetch('http://127.0.0.1:8000/api/users/',{
-            method: 'POST',
-            body: userData
-        }).then(
+        axios.post('http://127.0.0.1:8000/api/register/',userData)
+        .then(
             data => {
-                console.log(data)
+                setMessage(data.data.Message)
             }
-        ).catch(
+        )
+        .catch(
             error => {
                 console.log(error)
             }
         )
+
+        resetForm({values: ''})
     }
 
     return (
@@ -145,7 +148,7 @@ function SignUp() {
                                         />
                                     </div>
                                     <button className="button-sign" type="submit">Sign Up</button>
-                                    <p>Do you have already an account?<span>Log in</span></p>
+                                    <p className="sign-up-message-display">{message}</p>
                                 </Form>
                             </div>
                         </div>

@@ -1,0 +1,92 @@
+.user-container{
+    min-height: 100vh;
+    background-color: #22252a;
+    padding-top: 100px!important;
+}
+
+.user-container .row{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.personal-data-wrapped{
+    color: #fff!important;
+    font-family: 'Poppins',sans-serif!important;
+    font-weight: 500!important;
+    height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: auto;
+    padding: 40px 40px!important;
+    background-color: #22252a;
+    background-image: none!important;
+    margin-top: 0px;
+    margin-bottom: 40px!important;
+    background-image: linear-gradient(to right top, #424857, #343944, #272a32, #1a1c20, #0b0c0f)!important;
+    box-shadow: 0px 0px 16px 5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 0px 16px 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 0px 16px 5px rgba(0,0,0,0.6);
+}
+
+.user-information{
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    padding-left: 100px;
+}
+
+.package-information{
+    display: flex;
+    flex-direction: column;
+}
+
+.package-information div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 0px;
+}
+
+.user-information div h4{
+    padding-right: 10px;
+}
+
+.user-information div p{
+    padding-top: 10px;
+}
+
+.button-div{
+    width: 100%;
+    display: flex;
+    justify-content: center!important;
+    align-items: center!important;
+}
+
+.button-div button{
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
+    border: none;
+    width: 140px;
+    height: 40px;
+    margin-top: 20px;
+    transition: all 0.4s ease;
+    opacity: 1;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.button-div button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -webkit-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.4);
+}

@@ -128,3 +128,7 @@
     font-weight: 500;
 }
 
+.user-not-exists{
+    color: red!important;
+}
+

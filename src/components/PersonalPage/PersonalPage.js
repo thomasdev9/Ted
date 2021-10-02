@@ -6,6 +6,7 @@ import MainSection from './PersonalPackage/MainSection';
 import NavBar from '../Navbar'
 import {withRouter, Redirect} from 'react-router-dom'
 import { UserContext } from '../Contexts/UseContext';
+import Footer from '../Footer';
 
 function PersonalPage() {
 

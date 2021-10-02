@@ -6,6 +6,7 @@ body{
     background-color: #22252a;
     padding-left: 0px!important;
     margin: 0px!important;
+    padding-bottom: 150px!important;
     padding-top: 50px!important;
 }
 
@@ -139,19 +140,11 @@ body{
     display: flex;
 }
 
-.message-received:first-child > .message-received-text{
-    border-top-left-radius: 20px;
-}
-
-.message-received:last-child > .message-received-text{
-    border-bottom-left-radius: 20px;
-}
-
 .message-received-text{
     padding: 10px;
     min-height: 20px;
     background-color: #373737;
-    border-radius: 4px 20px 20px 4px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .message-group-sent{
@@ -169,17 +162,9 @@ body{
     font-size: 14px;
 }
 
-.message-sent:first-child > .message-sent-text{
-    border-top-right-radius: 20px;
-}
-
-.message-sent:last-child > .message-sent-text{
-    border-bottom-right-radius: 20px;
-}
-
 .message-sent-text{
     background-image: linear-gradient(to right top, #720e9e, #660d8d, #5b0b7d, #4f096d, #44085e);
-    border-radius: 20px 4px 4px 20px;
+    border-radius: 20px 20px 20px 20px;
     min-height: 20px;
     padding: 10px;
     margin-left: auto;
@@ -311,9 +296,15 @@ body{
 
 .messages-scroll{
     overflow-y: scroll;
+    height: 95%;
 }
 
 .messages-footer{
     display: flex;
     align-items: center;
+}
+
+.empty-friends{
+    color: #fff;
+    text-align: center;
 }

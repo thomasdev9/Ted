@@ -1,6 +1,7 @@
 .notifications-container{
     background-color: #22252a;
     padding-top: 100px!important;
+    padding-bottom: 100px!important;
 }
 
 .notifications-container .row{
@@ -50,12 +51,13 @@
     width: 100%;
     padding: 0px;
     overflow-y: scroll;
+    height: 350px;
 }
 
 .friend-requests ul li{
     list-style: none;
     vertical-align: middle;
-    text-align: center;
+    text-align: left;
     display: flex;
     align-items: center;
     justify-content: left;
